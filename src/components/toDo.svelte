@@ -13,6 +13,16 @@
 {/if}
 
 <style>
+	* {
+		font-size: 16px;
+		font-weight: 100;
+	}
+
+	h1 {
+		padding: 8px;
+		padding-left: 0;
+	}
+
 	.completed {
 		text-decoration: line-through
 	}

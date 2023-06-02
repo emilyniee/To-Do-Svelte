@@ -4,8 +4,7 @@
 	let newToDo;
 	
 	let toDos = 
-			[{taskName: "task 1", completed: false}, 
-			{taskName: "task 2", completed: true}];
+			[];
 	
 	function addToDo(item) {
 		if (item == null) {
@@ -26,22 +25,52 @@
 	
 </script>
 
-<input bind:value={newToDo}>
+<div class="whole">
+	<h1>
+		TO DO LIST
+	</h1>
 
-<button on:click={()=>addToDo(newToDo)}>
-	add task
-</button>
+	<input bind:value={newToDo}>
 
-{#each toDos as toDo, i}
-	<ToDo taskName={toDos[i].taskName}
-				completed={toDos[i].completed}/>
-	<button on:click={()=>deleteToDo(i)}>
-		x
+	<button on:click={()=>addToDo(newToDo)}>
+		add task
 	</button>
-	<input type=checkbox on:click ={()=>checkToDo(i)}/>
-{/each}
 
+	<div class="todo-list">
+		{#each toDos as toDo, i}
+			<div class="todo">
+				<ToDo taskName={toDos[i].taskName}
+							completed={toDos[i].completed}/>
+				<button on:click={()=>deleteToDo(i)}>
+					x
+				</button>
+				<input type=checkbox on:click ={()=>checkToDo(i)}/>
+			</div>
+		{/each}
+		
+	</div>
+</div>
 
+<style>
+	* {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+	}
+
+	.whole {
+		margin: 16px;
+	}
+
+	.todo {
+		display: flex;
+	}
+
+	button {
+		background: none;
+		border-style: none;
+	}
+
+</style>
 
 
 
